@@ -27,6 +27,7 @@ class BookResource extends Resource
                 Forms\Components\Textarea::make('description'),
                 Forms\Components\FileUpload::make('image')->image(),
                 Forms\Components\FileUpload::make('pdf_file')->acceptedFileTypes(['application/pdf']),
+                Forms\Components\Checkbox::make('is_public')->default(false)
             ])->columns(1);
     }
 

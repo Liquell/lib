@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('description')->nullable();
             $table->string('image')->nullable();
             $table->string('pdf_file');
+            $table->boolean('is_public');
             $table->timestamps();
         });
     }

@@ -10,13 +10,14 @@ class Book extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'description', 'image', 'pdf_file'];
+    protected $fillable = ['name', 'description', 'image', 'pdf_file', 'is_public'];
 
     protected $casts = [
         'name' => 'string',
         'description' => 'string',
         'image' => 'string',
         'pdf_file' => 'string',
+        'is_public' => 'boolean',
     ];
 
     public function users(): BelongsToMany
