@@ -25,7 +25,6 @@ class UserResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')->required(),
                 Forms\Components\TextInput::make('email')->required()->unique(User::class, 'email'),
-                Forms\Components\TextInput::make('password')->required()->label('Пароль'),
                 Forms\Components\Toggle::make('is_admin')->label('Адміністратор'),
             ])->columns(1);
     }
