@@ -2,9 +2,9 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\GroupResource\Pages;
-use App\Filament\Resources\GroupResource\RelationManagers;
-use App\Models\Group;
+use App\Filament\Resources\BookResource\Pages;
+use App\Filament\Resources\BookResource\RelationManagers;
+use App\Models\Book;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,11 +12,10 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use League\CommonMark\Extension\Table\TableExtension;
 
-class GroupResource extends Resource
+class BookResource extends Resource
 {
-    protected static ?string $model = Group::class;
+    protected static ?string $model = Book::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
@@ -24,9 +23,10 @@ class GroupResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->autofocus()->required(),
+                Forms\Components\TextInput::make('name')->required(),
+                Forms\Components\Textarea::make('description'),
                 Forms\Components\FileUpload::make('image')->image(),
-                Forms\Components\Checkbox::make('is_public')
+                Forms\Components\FileUpload::make('pdf_file')->acceptedFileTypes(['application/pdf']),
             ])->columns(1);
     }
 
@@ -36,9 +36,9 @@ class GroupResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')->searchable(),
                 Tables\Columns\ImageColumn::make('image'),
-                Tables\Columns\CheckboxColumn::make('is_public')
             ])
             ->filters([
+                //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -61,9 +61,9 @@ class GroupResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListGroups::route('/'),
-            'create' => Pages\CreateGroup::route('/create'),
-            'edit' => Pages\EditGroup::route('/{record}/edit'),
+            'index' => Pages\ListBooks::route('/'),
+            'create' => Pages\CreateBook::route('/create'),
+            'edit' => Pages\EditBook::route('/{record}/edit'),
         ];
     }
 }
