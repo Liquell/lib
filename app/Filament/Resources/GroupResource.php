@@ -26,7 +26,10 @@ class GroupResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')->autofocus()->required(),
                 Forms\Components\FileUpload::make('image')->image(),
-                Forms\Components\Checkbox::make('is_public')
+                Forms\Components\Checkbox::make('is_public'),
+                Forms\Components\Select::make('books')
+                    ->relationship('books', 'name')
+                    ->multiple(),
             ])->columns(1);
     }
 
