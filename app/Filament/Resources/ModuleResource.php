@@ -26,6 +26,9 @@ class ModuleResource extends Resource
                 Forms\Components\TextInput::make('title')->required(),
                 Forms\Components\Textarea::make('description'),
                 Forms\Components\FileUpload::make('image')->image(),
+                Forms\Components\Select::make('Lessons')
+                    ->relationship('lessons', 'title')
+                    ->multiple(),
             ])->columns(1);
     }
 

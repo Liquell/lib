@@ -17,4 +17,9 @@ class Lesson extends Model
         'video',
         'videofile',
     ];
+
+    public function modules(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Module::class);
+    }
 }

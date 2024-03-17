@@ -19,4 +19,9 @@ class Module extends Model
     {
         return $this->belongsToMany(Program::class);
     }
+
+    public function lessons(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Lesson::class);
+    }
 }
