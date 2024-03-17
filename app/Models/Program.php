@@ -14,4 +14,9 @@ class Program extends Model
         'description',
         'image',
     ];
+
+    public function professions(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Profession::class);
+    }
 }

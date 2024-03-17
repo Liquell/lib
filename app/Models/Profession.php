@@ -19,4 +19,9 @@ class Profession extends Model
     {
         return $this->belongsToMany(Group::class);
     }
+
+    public function programs(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Program::class);
+    }
 }
