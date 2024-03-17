@@ -18,8 +18,8 @@ class Group extends Model
         return $this->belongsToMany(User::class);
     }
 
-    public function professions(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    public function programs(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsToMany(Profession::class);
+        return $this->belongsToMany(Program::class);
     }
 }

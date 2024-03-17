@@ -29,9 +29,6 @@ class ProfessionResource extends Resource
                 Forms\Components\Select::make('Program')
                     ->relationship('programs', 'title')
                     ->multiple(),
-                Forms\Components\Select::make('Groups')
-                    ->relationship('groups', 'name')
-                    ->multiple(),
             ])->columns(1);
     }
 

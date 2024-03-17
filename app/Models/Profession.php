@@ -15,11 +15,6 @@ class Profession extends Model
         'image',
     ];
 
-    public function groups(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
-    {
-        return $this->belongsToMany(Group::class);
-    }
-
     public function programs(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
         return $this->belongsToMany(Program::class);

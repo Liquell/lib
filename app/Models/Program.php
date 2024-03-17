@@ -19,4 +19,9 @@ class Program extends Model
     {
         return $this->belongsToMany(Profession::class);
     }
+
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class);
+    }
 }
