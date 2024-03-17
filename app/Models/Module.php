@@ -14,4 +14,9 @@ class Module extends Model
         'description',
         'image',
     ];
+
+    public function programs(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Program::class);
+    }
 }

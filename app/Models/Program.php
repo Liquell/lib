@@ -20,8 +20,13 @@ class Program extends Model
         return $this->belongsToMany(Profession::class);
     }
 
-    public function groups()
+    public function groups(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
         return $this->belongsToMany(Group::class);
+    }
+
+    public function modules(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Module::class);
     }
 }

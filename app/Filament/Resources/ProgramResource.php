@@ -29,6 +29,9 @@ class ProgramResource extends Resource
                 Forms\Components\Select::make('Groups')
                     ->relationship('groups', 'name')
                     ->multiple(),
+                Forms\Components\Select::make('Modules')
+                    ->relationship('modules', 'title')
+                    ->multiple(),
             ])->columns(1);
     }
 
