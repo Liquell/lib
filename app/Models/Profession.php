@@ -14,4 +14,9 @@ class Profession extends Model
         'description',
         'image',
     ];
+
+    public function groups(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Group::class);
+    }
 }

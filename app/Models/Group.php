@@ -17,4 +17,9 @@ class Group extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
+    public function professions(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Profession::class);
+    }
 }

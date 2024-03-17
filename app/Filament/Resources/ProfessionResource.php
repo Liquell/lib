@@ -26,6 +26,9 @@ class ProfessionResource extends Resource
                 Forms\Components\TextInput::make('title')->required(),
                 Forms\Components\Textarea::make('description'),
                 Forms\Components\FileUpload::make('image')->image(),
+                Forms\Components\Select::make('Groups')
+                    ->relationship('groups', 'name')
+                    ->multiple(),
             ])->columns(1);
     }
 
